@@ -1,24 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Store Sales</title>
-    <style></style>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<body class="p-6 bg-gray-100">
 
-<body class="bg-stone-100 text-stone-900 min-h-screen">
+  <div class="max-w-3xl mx-auto">
+    <h1 class="text-2xl font-bold mb-4">Orders</h1>
 
-    <section id="login-view" class="min-h-screen flex items-center justify-center p-4"></section>
+    <!-- Feature 6: search -->
+    <input id="search" placeholder="Search product..." oninput="showOrders()" class="border p-2">
 
-    <section id="dashboard-view" class="hidden p-4"></section>
+    <!-- Feature 4: status dropdown -->
+    <select id="status" onchange="showOrders()" class="border p-2">
+      <option>All Statuses</option>
+      <option>Pending</option>
+      <option>Shipped</option>
+      <option>Delivered</option>
+      <option>Cancelled</option>
+    </select>
 
-        
+    <!-- Feature 5: out of stock checkbox -->
+    <label class="ml-2">
+      <input type="checkbox" id="outOfStock" onchange="showOrders()"> Out of stock only
+    </label>
 
-        <script src="index.js"></script>
+    <table class="w-full bg-white mt-4 shadow">
+      <tbody id="list"></tbody>
+    </table>
+  </div>
 
+  <script src="index.js"></script>
 </body>
-
 </html>
