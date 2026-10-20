@@ -11,12 +11,38 @@
     <title>Store Sales</title>
 </head>
 
-<body class="bg-stone-100 text-stone-900 min-h-screen flex items-center justify-center h-screen">
-    <section id="login-view" class="min-h-screen flex items-center justify-center p-4">
-        <div class="max-w-[960px] grid grid-cols-2 items-center gap-20 bg-[#EEEEEE] rounded-2xl">
+  <body
+    class="bg-stone-100 text-stone-900 min-h-screen flex items-center justify-center h-screen"
+  >
+    <section
+      id="login-view"
+      class="min-h-screen flex items-center justify-center p-4"
+    >
+      <div
+        class="max-w-[960px] grid grid-cols-2 items-center gap-20 bg-[#EEEEEE] rounded-2xl"
+      >
+        <div class="relative">
+          <img src="assets/signup-background.svg" alt="" />
+          <img src="assets/teamwork.svg" alt="" class="absolute top-36" />
+        </div>
+        <div class="max-w-80 grid gap-5">
+          <h1 class="text-2xl font-bold text-gray-500">
+            This is Where you Sign In
+          </h1>
+          <p>Access our Store Sales Dashboard</p>
+          <form id="loginForm" class="space-y-6 text-gray-500">
             <div class="relative">
-                <img src="assets/signup-background.svg" alt="" />
-                <img src="assets/teamwork.svg" alt="" class="absolute top-36" />
+              <div
+                class="absolute top-1 left-1 rounded-full p-2 flex items-center justify-center"
+              >
+                <i class="fa-solid fa-envelope-open"></i>
+              </div>
+              <input
+                type="email"
+                id="email"
+                placeholder="Email Address"
+                class="w-80 py-2 px-12 rounded-full"
+              />
             </div>
             <div class="max-w-80 grid gap-5">
                 <h1 class="text-2xl font-bold text-gray-500">
@@ -31,31 +57,50 @@
                         <input type="email" placeholder="Email Address" class="w-80 py-2 px-12 rounded-full" />
                     </div>
 
-                    <div class="relative">
-                        <div class="absolute top-1 left-1 rounded-full p-2 flex items-center justify-center">
-                            <i class="fa-solid fa-lock"></i>
-                        </div>
-                        <input type="text" placeholder="Password" class="w-80 py-2 px-12 rounded-full" />
-                    </div>
-                    <button class="bg-[#6144D5] w-80 text-white font-semibold rounded-full py-2">
-                        Sign in
-                    </button>
-                </form>
-                <div class="border-t border-white-light pt-4 space-y-4 text-sm">
-                    <p>
-                        Don't have an account?<a class="text-[#4382FF] font-semibold cursor-pointer">
-                            Sign Up</a>
-                    </p>
-                    <p>
-                        Forgot password?<a class="text-[#4382FF] font-semibold cursor-pointer">
-                            Reset password</a>
-                    </p>
-                    <p>
-                        Don't have a password yet?<a class="text-[#4382FF] font-semibold cursor-pointer">
-                            Set password</a>
-                    </p>
-                </div>
+            <div class="relative">
+              <div
+                class="absolute top-1 left-1 rounded-full p-2 flex items-center justify-center"
+              >
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <input
+                type="text"
+                id="password"
+                placeholder="Password"
+                class="w-80 py-2 px-12 rounded-full"
+              />
             </div>
+            <button
+              type="submit"
+              class="bg-[#6144D5] w-80 text-white font-semibold rounded-full py-2"
+            >
+              Sign in
+            </button>
+          </form>
+          <div class="border-t border-white-light pt-4 space-y-4 text-sm">
+            <p>
+              Don't have an account?<a
+                class="text-[#4382FF] font-semibold cursor-pointer"
+              >
+                Sign Up</a
+              >
+            </p>
+            <p>
+              Forgot password?<a
+                class="text-[#4382FF] font-semibold cursor-pointer"
+              >
+                Reset password</a
+              >
+            </p>
+            <p>
+              Don't have a password yet?<a
+                class="text-[#4382FF] font-semibold cursor-pointer"
+              >
+                Set password</a
+              >
+            </p>
+            <p id="errorMessage" class="text-sm"></p>
+          </div>
         </div>
     </section>
 
