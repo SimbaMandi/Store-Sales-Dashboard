@@ -16,3 +16,52 @@ loginForm.addEventListener("submit", function (event) {
     errorMessage.textContent = "Incorrect email or password, Please try again";
   }
 });
+// order form
+
+const form= document.getElementById("order-form");
+    form.addEventListener("submit", function(event){
+     event.preventDefault(); 
+     
+     const productName= document.getElementById("product-name").value;  
+    const unitPrice= document.getElementById("unit-price").value;  
+    const quantity= document.getElementById("quantity").value;  
+
+    if(productName === ""){
+        alert("Enter Product name");
+        return;
+    }
+
+    if(unitPrice === ""){
+        alert("Enter price");
+        return;
+    }
+
+    if(quantity === ""){
+        alert("Enter quantity");
+        return;
+    }
+
+    const price= Number(unitPrice);
+    const quantityy= Number(quantity);
+
+    if (price<=0){
+        alert("Price must be greater than 0");
+        return;
+    }
+
+     if (quantityy<=0){
+        alert("Quantity must be greater than 0");
+        return;
+    }
+    
+    const newOrder= {
+        productName: productName,
+        price: unitPrice,
+        quantityy: quantity,
+        status:"Pending",
+        inStock: true
+    };
+     orders.push(newOrder);
+
+     });
+
