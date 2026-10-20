@@ -1,18 +1,15 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
-      integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Store Sales</title>
-  </head>
+</head>
 
   <body
     class="bg-stone-100 text-stone-900 min-h-screen flex items-center justify-center h-screen"
@@ -47,6 +44,18 @@
                 class="w-80 py-2 px-12 rounded-full"
               />
             </div>
+            <div class="max-w-80 grid gap-5">
+                <h1 class="text-2xl font-bold text-gray-500">
+                    This is Where you Sign In
+                </h1>
+                <p>Access our Store Sales Dashboard</p>
+                <form action="" class="space-y-6 text-gray-500">
+                    <div class="relative">
+                        <div class="absolute top-1 left-1 rounded-full p-2 flex items-center justify-center">
+                            <i class="fa-solid fa-envelope-open"></i>
+                        </div>
+                        <input type="email" placeholder="Email Address" class="w-80 py-2 px-12 rounded-full" />
+                    </div>
 
             <div class="relative">
               <div
@@ -93,11 +102,11 @@
             <p id="errorMessage" class="text-sm"></p>
           </div>
         </div>
-      </div>
     </section>
 
     <section id="dashboard-view" class="hidden p-4"></section>
 
     <script src="index.js"></script>
-  </body>
+</body>
+
 </html>
