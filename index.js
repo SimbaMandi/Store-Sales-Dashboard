@@ -41,5 +41,12 @@ function showOrders() {
   document.getElementById("list").innerHTML = html;
 }
 
+// If the login feature hasn't been added yet (login-view is empty),
+// show the dashboard so the filters can be used and tested.
+const loginView = document.getElementById("login-view");
+if (loginView && loginView.children.length === 0) {
+  document.getElementById("dashboard-view").classList.remove("hidden");
+}
+
 // Show the table as soon as the page opens
 showOrders();
