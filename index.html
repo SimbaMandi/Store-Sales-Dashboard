@@ -59,7 +59,49 @@
         </div>
     </section>
 
-    <section id="dashboard-view" class="hidden p-4"></section>
+    <section id="dashboard-view" class="hidden p-4">
+        <h1 class="text-3xl font-bold mb-8">
+        Dashboard
+    </h1>
+
+   <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white >
+                <h2 class="text-gray-500 font-medium">Total Revenue</h2>
+                <p id="total-revenue" class="text-3xl font-bold mt-3 text-gray-900">0 RWF</p>
+            </div>
+
+            <div class="bg-white >
+                <h2 class="text-gray-500 font-medium">Pending Orders</h2>
+                <p id="pending-orders" class="text-3xl font-bold mt-3 text-gray-900">0</p>
+            </div>
+
+            <div class="bg-white >
+                <h2 class="text-gray-500 font-medium">Average Order Value</h2>
+                <p id="average-order-value" class="text-3xl font-bold mt-3 text-gray-900">0 RWF</p>
+            </div>
+        </section>
+
+        
+        <section>
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">Product List</h2>
+            
+            <div class="bg-white rounded-lg shadow overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead class="bg-green-600 text-white">
+                        <tr>
+                            <th class="p-3">Product Name</th>
+                            <th class="p-3">Price (RWF)</th>
+                            <th class="p-3">Quantity</th>
+                            <th class="p-3">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="product-list">
+                        
+                    </tbody>
+                </table>
+            </div>
+        
+    </section>
 
     <script src="index.js"></script>
 </body>
