@@ -33,7 +33,7 @@
             This is Where you Sign In
           </h1>
           <p>Access our Store Sales Dashboard</p>
-          <form action="" class="space-y-6 text-gray-500">
+          <form id="loginForm" class="space-y-6 text-gray-500">
             <div class="relative">
               <div
                 class="absolute top-1 left-1 rounded-full p-2 flex items-center justify-center"
@@ -42,6 +42,7 @@
               </div>
               <input
                 type="email"
+                id="email"
                 placeholder="Email Address"
                 class="w-80 py-2 px-12 rounded-full"
               />
@@ -55,11 +56,13 @@
               </div>
               <input
                 type="text"
+                id="password"
                 placeholder="Password"
                 class="w-80 py-2 px-12 rounded-full"
               />
             </div>
             <button
+              type="submit"
               class="bg-[#6144D5] w-80 text-white font-semibold rounded-full py-2"
             >
               Sign in
@@ -87,6 +90,7 @@
                 Set password</a
               >
             </p>
+            <p id="errorMessage" class="text-sm"></p>
           </div>
         </div>
       </div>
