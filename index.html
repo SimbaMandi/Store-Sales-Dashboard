@@ -2,132 +2,90 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
-        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Store Sales</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Store Sales</title>
 </head>
 
-  <body
-    class="bg-stone-100 text-stone-900 min-h-screen flex items-center justify-center h-screen"
-  >
-    <section
-      id="login-view"
-      class="min-h-screen flex items-center justify-center p-4"
-    >
-      <div
-        class="max-w-[960px] grid grid-cols-2 items-center gap-20 bg-[#EEEEEE] rounded-2xl"
-      >
-        <div class="relative">
-          <img src="assets/signup-background.svg" alt="" />
-          <img src="assets/teamwork.svg" alt="" class="absolute top-36" />
-        </div>
-        <div class="max-w-80 grid gap-5">
-          <h1 class="text-2xl font-bold text-gray-500">
-            This is Where you Sign In
-          </h1>
-          <p>Access our Store Sales Dashboard</p>
-          <form id="loginForm" class="space-y-6 text-gray-500">
-            <div class="relative">
-              <div
-                class="absolute top-1 left-1 rounded-full p-2 flex items-center justify-center"
-              >
-                <i class="fa-solid fa-envelope-open"></i>
-              </div>
-              <input
-                type="email"
-                id="email"
-                placeholder="Email Address"
-                class="w-80 py-2 px-12 rounded-full"
-              />
+<body class="bg-stone-100 text-stone-900 min-h-screen flex items-center justify-center h-screen">
+  <section id="login-view" class="min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-[960px] grid grid-cols-2 items-center gap-20 bg-[#EEEEEE] rounded-2xl">
+      <div class="relative">
+        <img src="assets/signup-background.svg" alt="" />
+        <img src="assets/teamwork.svg" alt="" class="absolute top-36" />
+      </div>
+      <div class="max-w-80 grid gap-5">
+        <h1 class="text-2xl font-bold text-gray-500">
+          This is Where you Sign In
+        </h1>
+        <p>Access our Store Sales Dashboard</p>
+        <form id="loginForm" class="space-y-6 text-gray-500">
+          <div class="relative">
+            <div class="absolute top-1 left-1 rounded-full p-2 flex items-center justify-center">
+              <i class="fa-solid fa-envelope-open"></i>
             </div>
-
-            <div class="relative">
-              <div
-                class="absolute top-1 left-1 rounded-full p-2 flex items-center justify-center"
-              >
-                <i class="fa-solid fa-lock"></i>
-              </div>
-              <input
-                type="text"
-                id="password"
-                placeholder="Password"
-                class="w-80 py-2 px-12 rounded-full"
-              />
-            </div>
-            <button
-              type="submit"
-              class="bg-[#6144D5] w-80 text-white font-semibold rounded-full py-2"
-            >
-              Sign in
-            </button>
-          </form>
-          <div class="border-t border-white-light pt-4 space-y-4 text-sm">
-            <p>
-              Don't have an account?<a
-                class="text-[#4382FF] font-semibold cursor-pointer"
-              >
-                Sign Up</a
-              >
-            </p>
-            <p>
-              Forgot password?<a
-                class="text-[#4382FF] font-semibold cursor-pointer"
-              >
-                Reset password</a
-              >
-            </p>
-            <p>
-              Don't have a password yet?<a
-                class="text-[#4382FF] font-semibold cursor-pointer"
-              >
-                Set password</a
-              >
-            </p>
-            <p id="errorMessage" class="text-sm"></p>
+            <input type="email" id="email" placeholder="Email Address" class="w-80 py-2 px-12 rounded-full" />
           </div>
-        </div>
-    </section>
 
-<<<<<<< HEAD
-    <section id="dashboard-view" class="hidden p-4">git</section>
-=======
+          <div class="relative">
+            <div class="absolute top-1 left-1 rounded-full p-2 flex items-center justify-center">
+              <i class="fa-solid fa-lock"></i>
+            </div>
+            <input type="text" id="password" placeholder="Password" class="w-80 py-2 px-12 rounded-full" />
+          </div>
+          <button type="submit" class="bg-[#6144D5] w-80 text-white font-semibold rounded-full py-2">
+            Sign in
+          </button>
+        </form>
+        <div class="border-t border-white-light pt-4 space-y-4 text-sm">
+          <p>
+            Don't have an account?<a class="text-[#4382FF] font-semibold cursor-pointer">
+              Sign Up</a>
+          </p>
+          <p>
+            Forgot password?<a class="text-[#4382FF] font-semibold cursor-pointer">
+              Reset password</a>
+          </p>
+          <p>
+            Don't have a password yet?<a class="text-[#4382FF] font-semibold cursor-pointer">
+              Set password</a>
+          </p>
+          <p id="errorMessage" class="text-sm"></p>
+        </div>
+      </div>
+  </section>
+
     <section id="dashboard-view" class="hidden p-4">
 
-        <!-- Feature 6: Search products -->
-        <input
-            id="search"
-            type="text"
-            placeholder="Search product..."
-            oninput="showOrders()"
-            class="border p-2 mb-4"
-        >
+      <!-- Feature 6: Search products -->
+      <input id="search" type="text" placeholder="Search product..." oninput="showOrders()" class="border p-2 mb-4">
 
-        <!-- Feature 4: Status Filter -->
-        <select id="status" onchange="showOrders()" class="border p-2">
-            <option>All Statuses</option>
-            <option>Pending</option>
-            <option>Shipped</option>
-            <option>Delivered</option>
-            <option>Cancelled</option>
-        </select>
+      <!-- Feature 4: Status Filter -->
+      <select id="status" onchange="showOrders()" class="border p-2">
+        <option>All Statuses</option>
+        <option>Pending</option>
+        <option>Shipped</option>
+        <option>Delivered</option>
+        <option>Cancelled</option>
+      </select>
 
-        <!-- Feature 5: Out-of-Stock Filter -->
-        <label class="ml-2">
-            <input type="checkbox" id="outOfStock" onchange="showOrders()">
-            Out of stock only
-        </label>
+      <!-- Feature 5: Out-of-Stock Filter -->
+      <label class="ml-2">
+        <input type="checkbox" id="outOfStock" onchange="showOrders()">
+        Out of stock only
+      </label>
 
-        <!-- Orders table -->
-        <table class="w-full bg-white mt-4 shadow">
-            <tbody id="list"></tbody>
-        </table>
+      <!-- Orders table -->
+      <table class="w-full bg-white mt-4 shadow">
+        <tbody id="list"></tbody>
+      </table>
 
     </section>
->>>>>>> 13a46b3056542c023fabb89af5baa5423bb0e2e3
+    <!-- >>>>>>> 13a46b3056542c023fabb89af5baa5423bb0e2e3 -->
 
     <script src="index.js"></script>
 </body>
