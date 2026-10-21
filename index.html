@@ -44,18 +44,6 @@
                 class="w-80 py-2 px-12 rounded-full"
               />
             </div>
-            <div class="max-w-80 grid gap-5">
-                <h1 class="text-2xl font-bold text-gray-500">
-                    This is Where you Sign In
-                </h1>
-                <p>Access our Store Sales Dashboard</p>
-                <form action="" class="space-y-6 text-gray-500">
-                    <div class="relative">
-                        <div class="absolute top-1 left-1 rounded-full p-2 flex items-center justify-center">
-                            <i class="fa-solid fa-envelope-open"></i>
-                        </div>
-                        <input type="email" placeholder="Email Address" class="w-80 py-2 px-12 rounded-full" />
-                    </div>
 
             <div class="relative">
               <div
@@ -104,7 +92,38 @@
         </div>
     </section>
 
-    <section id="dashboard-view" class="hidden p-4"></section>
+    <section id="dashboard-view" class="hidden p-4">
+
+        <!-- Feature 6: Search products -->
+        <input
+            id="search"
+            type="text"
+            placeholder="Search product..."
+            oninput="showOrders()"
+            class="border p-2 mb-4"
+        >
+
+        <!-- Feature 4: Status Filter -->
+        <select id="status" onchange="showOrders()" class="border p-2">
+            <option>All Statuses</option>
+            <option>Pending</option>
+            <option>Shipped</option>
+            <option>Delivered</option>
+            <option>Cancelled</option>
+        </select>
+
+        <!-- Feature 5: Out-of-Stock Filter -->
+        <label class="ml-2">
+            <input type="checkbox" id="outOfStock" onchange="showOrders()">
+            Out of stock only
+        </label>
+
+        <!-- Orders table -->
+        <table class="w-full bg-white mt-4 shadow">
+            <tbody id="list"></tbody>
+        </table>
+
+    </section>
 
      <section> 
     <form id="order-form"  class="flex items-center gap-5">
