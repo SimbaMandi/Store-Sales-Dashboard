@@ -1,86 +1,63 @@
-// ---- Data ----
+const loginForm = document.querySelector("#loginForm");
+const errorMessage = document.querySelector("#errorMessage");
+loginForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const email = document.querySelector("#email").value;
+  const password = document.querySelector("#password").value;
+
+  if (email === "user@gmail.com" && password === "123456") {
+    errorMessage.classList.remove("text-red-500");
+    errorMessage.classList.add("text-green-500");
+    errorMessage.textContent = "Login successfull";
+  } else {
+    errorMessage.classList.remove("text-green-500");
+    errorMessage.classList.add("text-red-500");
+    errorMessage.textContent = "Incorrect email or password, Please try again";
+  }
+});
+
+// ===== Store filters (Features 4, 5, 6) =====
 const orders = [
-  { name: "Laptop",       price: 800000, qty: 2, status: "Pending",   inStock: true  },
-  { name: "Desk Chair",   price: 100000, qty: 3, status: "Delivered", inStock: false },
-  { name: "Monitor",      price: 250000, qty: 1, status: "Shipped",   inStock: true  },
-  { name: "Phone",        price: 600000, qty: 2, status: "Shipped",   inStock: true  },
-  { name: "Printer",      price: 300000, qty: 1, status: "Pending",   inStock: true  },
-  { name: "Tablet",       price: 450000, qty: 2, status: "Delivered", inStock: true  },
-  { name: "Headphones",   price: 80000,  qty: 3, status: "Delivered", inStock: true  },
-  { name: "Webcam",       price: 60000,  qty: 2, status: "Pending",   inStock: false },
-  { name: "Desk",         price: 150000, qty: 2, status: "Shipped",   inStock: true  },
-  { name: "Router",       price: 90000,  qty: 2, status: "Delivered", inStock: true  },
-  { name: "Keyboard",     price: 50000,  qty: 4, status: "Delivered", inStock: true  },
-  { name: "External SSD", price: 85000,  qty: 4, status: "Pending",   inStock: true  }
+  { product: "Laptop", price: 800000, quantity: 2, status: "Pending", inStock: true },
+  { product: "Desk Chair", price: 100000, quantity: 3, status: "Delivered", inStock: false },
+  { product: "Mouse", price: 15000, quantity: 10, status: "Shipped", inStock: true },
+  { product: "Keyboard", price: 60000, quantity: 4, status: "Pending", inStock: false },
+  { product: "Monitor", price: 250000, quantity: 2, status: "Delivered", inStock: true },
+  { product: "USB Hub", price: 30000, quantity: 6, status: "Cancelled", inStock: true },
+  { product: "Standing Desk", price: 450000, quantity: 1, status: "Shipped", inStock: false },
+  { product: "Webcam", price: 45000, quantity: 5, status: "Pending", inStock: true },
+  { product: "Headphones", price: 180000, quantity: 3, status: "Delivered", inStock: true },
+  { product: "Office Lamp", price: 25000, quantity: 8, status: "Cancelled", inStock: false },
+  { product: "Laptop Stand", price: 35000, quantity: 7, status: "Shipped", inStock: true },
+  { product: "Printer", price: 320000, quantity: 1, status: "Delivered", inStock: true }
 ];
 
-// ---- Helpers ----
-const $ = id => document.getElementById(id);
-const rwf = n => Math.round(n).toLocaleString("en-US") + " RWF";
-const escapeHtml = s => s.replace(/[&<>"']/g, c =>
-  ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+// Show only the orders that match ALL the filters
+function showOrders() {
+  const search = document.getElementById("search").value.toLowerCase();
+  const status = document.getElementById("status").value;
+  const onlyOutOfStock = document.getElementById("outOfStock").checked;
 
-// ---- Summary cards (always based on all orders) ----
-function renderStats() {
-  const revenue = orders.reduce((sum, o) => sum + o.price * o.qty, 0);
-  const pending = orders.filter(o => o.status === "Pending").length;
-  $("revenue").textContent = rwf(revenue);
-  $("pending").textContent = pending;
-  $("average").textContent = rwf(orders.length ? revenue / orders.length : 0);
+  const result = orders.filter(o => {
+    const matchSearch = o.product.toLowerCase().includes(search);
+    const matchStatus = status === "All Statuses" || o.status === status;
+    const matchStock = !onlyOutOfStock || o.inStock === false;
+    return matchSearch && matchStatus && matchStock;
+  });
+
+  let html = "";
+  result.forEach(o => {
+    html += `<tr class="border-t">
+      <td class="p-2">${o.product}</td>
+      <td class="p-2">${o.price}</td>
+      <td class="p-2">${o.quantity}</td>
+      <td class="p-2">${o.status}</td>
+      <td class="p-2">${o.inStock ? "In stock" : "Out of stock"}</td>
+    </tr>`;
+  });
+
+  document.getElementById("list").innerHTML = html;
 }
 
-// ---- Table (respects search, status and stock filters) ----
-function renderTable() {
-  const term = $("search").value.trim().toLowerCase();
-  const status = $("status").value;
-  const outOnly = $("outOnly").checked;
-
-  const visible = orders.filter(o =>
-    o.name.toLowerCase().includes(term) &&
-    (status === "all" || o.status === status) &&
-    (!outOnly || !o.inStock)
-  );
-
-  $("count").textContent = `Showing ${visible.length} of ${orders.length} orders`;
-
-  $("rows").innerHTML = visible.length
-    ? visible.map(o => `
-      <tr>
-        <td class="name">${escapeHtml(o.name)}</td>
-        <td>${rwf(o.price)}</td>
-        <td>${o.qty}</td>
-        <td>${rwf(o.price * o.qty)}</td>
-        <td><span class="badge ${o.status}">${o.status}</span></td>
-        <td class="${o.inStock ? "" : "out"}">${o.inStock ? "In stock" : "Out of stock"}</td>
-      </tr>`).join("")
-    : `<tr><td colspan="6" class="empty">No orders match your filters. Clear the search or change the status.</td></tr>`;
-}
-
-// ---- Add order ----
-function addOrder() {
-  const name = $("name").value.trim();
-  const price = Number($("price").value);
-  const qty = parseInt($("qty").value, 10);
-
-  if (!name || !(price > 0) || !(qty > 0)) {
-    alert("Enter a product name, a unit price above 0, and a quantity of at least 1.");
-    return;
-  }
-
-  orders.unshift({ name, price, qty, status: "Pending", inStock: true });
-  $("name").value = $("price").value = $("qty").value = "";
-  $("name").focus();
-  renderStats();
-  renderTable();
-}
-
-// ---- Events ----
-$("addBtn").addEventListener("click", addOrder);
-["name", "price", "qty"].forEach(id =>
-  $(id).addEventListener("keydown", e => { if (e.key === "Enter") addOrder(); }));
-$("search").addEventListener("input", renderTable);
-$("status").addEventListener("change", renderTable);
-$("outOnly").addEventListener("change", renderTable);
-
-renderStats();
-renderTable();
+showOrders();
